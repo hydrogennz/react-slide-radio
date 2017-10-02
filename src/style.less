@@ -1,0 +1,41 @@
+.transition(@rule...) {
+  -webkit-transition: @rule;
+  -moz-transition:    @rule;
+  -o-transition:      @rule;
+  transition:         @rule;
+}
+
+&.toggle {
+    cursor: pointer;
+	display: flex;
+    min-width: 200px;
+    position: relative;
+
+    .toggle-option {
+    	flex: 1;
+        padding: 0px 15px;
+        cursor: pointer;
+        text-align: center;
+        color: #888;
+        line-height: 22px;
+        font-weight: bold;
+
+        &:hover {
+            color: #444;
+            font-weight: bold;
+        }
+
+        &.active {
+            color: #222;
+            font-weight: bold;
+        }
+    }
+
+    .toggle-underline {
+        position: absolute;
+        bottom: 0px;
+        border-bottom: 2px solid #222;
+        @transition: left 0.5s ease-in-out, width 0.2s ease-in; 
+        .transition(@transition);
+    }
+}
